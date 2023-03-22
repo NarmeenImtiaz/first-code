@@ -10,9 +10,4 @@ btns.addEventListener('click', (e)=> {
  
  })
  
-
-
-
-
-
-   
+ 

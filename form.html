@@ -1,82 +1,148 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="CSS/form.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" type="CSS/bootstrap.css">
-	<title>Login Form</title>
-</head>
-<body>
-<div class="card mt-5" style="border: none;">
-	<div class="container bg-secondary">
-		<h2 class="text-white text-center mt-5">STUDENT INFORMATION FORM</h2>
-	
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="CSS/form.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="CSS/bootstrap.css" />
+    <title>Login Form</title>
+  </head>
+  <body>
+    <div class="card mt-5" style="border: none">
+      <div class="container bg-secondary">
+        <h2 class="text-white text-center mt-5">STUDENT INFORMATION FORM</h2>
 
-<form action="insert.php" method="POST" class="mt-5 px-2">
-	  <div class="form-group">
-	  	<div class="row">
-	  	<div class="col">
-	<label class="text-uppercase text-white">Name</label>
-	<input type="text" class="form-control" placeholder="Enter Name" name="name" required>
-</div>
-<div class="col"> 
-	<label class="text-uppercase text-white">Roll No</label>
-	<input type="text" class="form-control" placeholder="Enter your Roll No" name="rno">
-</div>
-</div>
-</div>
-<br>
-  
-    
-    <div class="form-group">
-    	<div class="row">
-    		<div class="col">
-	<label class="text-uppercase text-white">Class Name</label>
-	<input type="text" class="form-control" placeholder="Enter your Class" name="cname" required>
-</div>
-    <div class="col">
-	<label class="text-uppercase text-white">Section</label>
-	<input type="text" class="form-control" placeholder="Enter Section" name="Section">
-</div>
-</div>
-</div><br>
+        <form action="insert.php" method="POST" class="mt-5 px-2">
+          <div class="form-group">
+            <div class="row">
+              <div class="col">
+                <label class="text-uppercase text-white">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter Name"
+                  name="name"
+                  required
+                />
+              </div>
+              <div class="col">
+                <label class="text-uppercase text-white">Roll No</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter your Roll No"
+                  name="rno"
+                />
+              </div>
+            </div>
+          </div>
+          <br />
 
-	 
-	<button type="button" class="btn btn-primary float-right mb-5" id="sub_btn" name="btnsub">Add Subject</button>
+          <div class="form-group">
+            <div class="row">
+              <div class="col">
+                <label class="text-uppercase text-white">Class Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter your Class"
+                  name="cname"
+                  required
+                />
+              </div>
+              <div class="col">
+                <label class="text-uppercase text-white">Section</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter Section"
+                  name="section"
+                />
+              </div>
+              <input type="text" name="subnum" />
+              <input type="text" name="subname" />
+            </div>
+          </div>
+          <br />
 
-</form>
-</div>
-</div>
- <!-- Design table -->
-<div class="theinner" id="Subtable">
- <div class="container mt-5">
- <table class="table bg-secondary">
-	<thead>
-	  <tr class="text-white">
-		<th scope="col" >SR.No</th>
-		<th scope="col">Subject Number</th>
-		<th scope="col">Subject Name</th>
-		<th scope="col">Action</th>
-	  </tr>
-	</thead>
-	<tbody>
-	  <tr class="text-white">
-		<th scope="row">1</th>
-		<td><input type="text" name="sub_num"></td>
-		<td><input type="text" name="sub_name"></td>
-		<td>
-			<button class="btn btn-success mr-2 text-white">Update</button><button type="button" class="btn btn-danger">Delete</button></td>
-	  </tr>
-	  
-	</tbody>
-  </table>
-  <button type="submit" name="save" class="btn btn-primary float-right mb-5">Save</button>
-  </div>
-  </div>
-</body>
-<script src="JS/jquery-3.6.4.min"></script>
-<script src="JS/bootstrap.bundle"></script>
-<script src="JS/insert.js"></script>
+          <button
+            type="button"
+            class="btn btn-primary float-right mb-5"
+            id="sub_btn"
+            name="btnsub"
+          >
+            Add Subject
+          </button>
+          <button
+            type="submit"
+            class="btn btn-primary float-right mb-5"
+            name="savbtn"
+          >
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- Design table -->
+    <div class="theinner" id="Subtable">
+      <div class="container mt-5">
+        <table class="table bg-secondary" id="myTable">
+          <thead>
+            <tr class="text-white">
+              <th scope="col">SR.No</th>
+              <th scope="col">Subject Number</th>
+              <th scope="col">Subject Name</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="text-white">
+              <th scope="row">1</th>
+              <td>
+                <input type="text" name="subnum" />
+              </td>
+              <td>
+                <input type="text" name="subname" />
+              </td>
+
+              <td>
+                <button class="btn btn-success mr-2 text-white">Update</button
+                ><button type="button" class="btn btn-danger">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- <button -->
+        <!-- type="submit" -->
+        <!-- class="btn btn-primary float-right mb-5" -->
+        <!-- name="savbtn" -->
+        <!-- > -->
+        <!-- Save -->
+        <!-- </button> -->
+      </div>
+    </div>
+  </body>
+  <script src="JS/jquery-3.6.4.min"></script>
+  <script src="JS/bootstrap.bundle"></script>
+  <script src="JS/insert.js"></script>
+  <script type="text/javascript">
+    let someValue = 2;
+    $(document).ready(function () {
+      $("#sub_btn").on("click", function () {
+        $("#myTable tr:last").after(
+          '<tr><th class="text-white">' +
+            someValue +
+            '</th><td><input type="text" name="sub_num"></td><td><input type="text" name="sub_name"></td><td><button class="btn btn-success mr-2 text-white">Update</button><button type="button" class="btn btn-danger">Delete</button></td></tr>'
+        );
+        someValue++;
+      });
+    });
+  </script>
 </html>
